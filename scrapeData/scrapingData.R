@@ -100,10 +100,10 @@ build.dataset <- function(url){
    				
     		#combine dataframe
     		df_temp <- data.frame(address, town, price, floorplan[1], 
-    								  floorplan[3], "House", utilities, lat, long,
-    								  stringAsFactors = FALSE)
+				      floorplan[3], "House", utilities, lat, long,
+				      stringAsFactors = FALSE)
     		names(df_temp) <- c("Address", "Town", "Rent", "Bd.", "SqFt", 
-    								"Apt or House", "Utilities included", "Latitude", "Longitude")
+				    "Apt or House", "Utilities included", "Latitude", "Longitude")
     		df <- rbind(df, df_temp)
   		}
   		else{ #this property is an apartment
@@ -208,30 +208,3 @@ income_tab_MA$Median.Family.Income <- as.integer(gsub("\\$|,", "", income_tab_MA
 # join them by town
 data <- merge(data, income_tab_MA, by="Town", all.x = TRUE)
 save.image("~/Boston.RData")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
