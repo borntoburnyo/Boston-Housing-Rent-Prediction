@@ -70,13 +70,13 @@ build.dataset <- function(url){
     		
     		#floorplan
     		floorplan <- unlist(strsplit(page %>% 
-    									 	html_node('#summary_floorplan') %>% 
-    									 		html_text, '[|]'))
+					     	html_node('#summary_floorplan') %>% 
+					     		html_text, '[|]'))
  
     		#address
     		address <- page %>% 
-    				       html_node('#summary_address') %>% 
-    				           html_text
+				html_node('#summary_address') %>%
+				html_text
     			
      		# add latitude and longitude
     		lat.long <- geocode(as.character(address))
@@ -85,8 +85,8 @@ build.dataset <- function(url){
     			
     		#rental price
     		price <- page %>% 
-    				 	html_node('#summary_price strong') %>% 
-    				 		html_text
+				html_node('#summary_price strong') %>% 
+				html_text
 
     		#utilities_des
 
@@ -115,8 +115,8 @@ build.dataset <- function(url){
     			
     		# table about appartments
     		tab <- page %>% 
-    			       html_node(xpath='//*[@id="page"]/div[2]/div[2]/div[2]/div/div[1]/div[2]/table') %>% 
-    				       html_table(fill=T)
+				html_node(xpath='//*[@id="page"]/div[2]/div[2]/div[2]/div/div[1]/div[2]/table') %>% 
+				html_table(fill=T)
  
  			# get utilities
  			temp <- readLines(url)
@@ -127,7 +127,9 @@ build.dataset <- function(url){
   			}
   			
     		# address
-    		address <- page %>% html_node('#summary_address') %>% html_text
+    		address <- page %>% 
+				html_node('#summary_address') %>% 
+				html_text
     			
     		# add latitude and longitude
     		lat.long <- geocode(as.character(address))
@@ -191,8 +193,8 @@ url <- "https://en.wikipedia.org/wiki/List_of_Massachusetts_locations_by_per_cap
 
 income_tab_MA <- url %>%
 	read_html() %>%  
-		html_nodes(css = 'table') %>% 
-			html_table()
+	html_nodes(css = 'table') %>% 
+	html_table()
 
 income_tab_MA <- as.data.frame(income_tab_MA[3])
 income_tab_MA <- income_tab_MA[, c(2, 6, 7)]
