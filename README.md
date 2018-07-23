@@ -1,4 +1,6 @@
 # Boston-Housing-Rent-Prediction
+In brief, this is a project predicting housing rental price in Boston with data scraped from (rental.com)[https://www.rentals.com/Massachusetts/Boston/]
+
 Project in R, include parsing data from website, training predictive model and visualization with Shiny app.
 
 scrapingData.R: code to scraping housing rents data using `rvest`.    
